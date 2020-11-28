@@ -3,24 +3,47 @@
 
 <head>
     <meta charset="utf-8">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $("div").animate({
-                    left: '250px'
-                });
-            });
-        });
-    </script>
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 2s
+        }
+        
+        .fade-enter,
+        .fade-leave-to
+        /* .fade-leave-active, 2.1.8 版本以下 */
+        
+        {
+            opacity: 0
+        }
+    </style>
 </head>
 
 <body>
-    <button>开始动画</button>
-    <p>默认情况下，所有的 HTML 元素有一个静态的位置，且是不可移动的。 如果需要改变为，我们需要将元素的 position 属性设置为 relative, fixed, 或 absolute!</p>
-    <div style="background:#b2e712;height:100px;width:100px;position:absolute;">
+    <div id="databinding">
+        <button v-on:click="show = !show">点我</button>
+        <transition name="fade">
+            <p v-show="show" v-bind:style="styleobj">动画实例</p>
+        </transition>
     </div>
-
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                show: true,
+                styleobj: {
+                    fontSize: '30px',
+                    color: 'red'
+                }
+            },
+            methods: {}
+        });
+    </script>
 </body>
 
 </html>

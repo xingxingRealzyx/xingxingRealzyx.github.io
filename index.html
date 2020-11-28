@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
-<script>
-function displayDate(){
-	document.getElementById("demo").innerHTML=Date();
-}
-</script>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("div").animate({
+                    left: '250px'
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
-
-<h1>我的第一个 JavaScript 程序</h1>
-<p id="demo">这是一个段落</p>
-
-<button type="button" onclick="displayDate()">显示日期</button>
+    <button>开始动画</button>
+    <p>默认情况下，所有的 HTML 元素有一个静态的位置，且是不可移动的。 如果需要改变为，我们需要将元素的 position 属性设置为 relative, fixed, 或 absolute!</p>
+    <div style="background:#98bf21;height:100px;width:100px;position:absolute;">
+    </div>
 
 </body>
+
 </html>
